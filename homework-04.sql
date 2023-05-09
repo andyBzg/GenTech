@@ -18,7 +18,7 @@ ORDER BY total_products DESC
 SELECT 
 	CategoryName,
 	COUNT(*) as total_products
-from Products
+FROM Products
 JOIN Categories ON Products.CategoryID=Categories.CategoryID
 GROUP BY CategoryName
 ORDER BY total_products DESC
