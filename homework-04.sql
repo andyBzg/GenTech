@@ -8,7 +8,7 @@ SELECT
 	COUNT(*) AS total_products
 	FROM Products
 JOIN Suppliers ON Products.SupplierID=Suppliers.SupplierID
-GROUP BY Suppliers.SupplierName
+GROUP BY Suppliers.SupplierID
 ORDER BY total_products DESC
 
 
@@ -16,20 +16,20 @@ ORDER BY total_products DESC
 (название категории, ко-во товаров)
 
 SELECT 
-	CategoryName,
+	Categories.CategoryName,
 	COUNT(*) as total_products
 FROM Products
 JOIN Categories ON Products.CategoryID=Categories.CategoryID
-GROUP BY CategoryName
+GROUP BY Categories.CategoryID
 ORDER BY total_products DESC
 LIMIT 1
 
 
 3. Вывести сумму каждого заказа (номер_заказа, сумма)
 
-SELECT 
-	OrderID, 
-	SUM(Price) AS total_price 
+SELECT
+        OrderDetails.OrderID,
+        SUM(Price) AS total_price
 FROM OrderDetails
 JOIN Products ON OrderDetails.ProductID=Products.ProductID
-GROUP BY OrderID
+GROUP BY OrderDetails.OrderID
