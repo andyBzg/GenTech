@@ -29,7 +29,8 @@ LIMIT 1
 
 SELECT
         OrderDetails.OrderID,
-        SUM(Price) AS total_price
+        SUM(Products.Price * OrderDetails.Quantity) AS total_price
 FROM OrderDetails
 JOIN Products ON OrderDetails.ProductID=Products.ProductID
 GROUP BY OrderDetails.OrderID
+
