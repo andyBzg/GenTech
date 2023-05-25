@@ -13,6 +13,8 @@ CREATE TABLE timetable (
 CREATE TABLE teachers (
 	teachers_id int PRIMARY KEY AUTO_INCREMENT,
   	created_at timestamp DEFAULT CURRENT_TIMESTAMP,
+	fullname varchar(64) NOT NULL,
+    	email varchar(64) UNIQUE
 );
 
 
